@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر قطع الكمبيوتر</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- شريط التنقل -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#">PC Parts Store</a>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">الرئيسية</a>
+                <a href="#products" class="nav-link">المنتجات</a>
+                <a href="#about" class="nav-link">من نحن</a>
+                <a href="#contact" class="nav-link">اتصل بنا</a>
+                <a href="admin.html" class="nav-link admin-btn">لوحة الإدارة</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- القسم الرئيسي -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">أفضل قطع الكمبيوتر بأفضل الأسعار</h1>
+            <p class="hero-description">اكتشف أحدث مكونات الكمبيوتر من كروت الشاشة والمعالجات واللوحات الأم والمزيد</p>
+            <a href="#products" class="cta-button">تصفح المنتجات</a>
+        </div>
+        <div class="hero-animation">
+            <div class="floating-pc"></div>
+        </div>
+    </section>
+
+    <!-- الأقسام -->
+    <section id="categories" class="categories">
+        <h2 class="section-title">أقسام المتجر</h2>
+        <div class="categories-grid">
+            <div class="category-card" data-category="gpu">
+                <div class="category-icon">🖥️</div>
+                <h3>كروت الشاشة</h3>
+            </div>
+            <div class="category-card" data-category="cpu">
+                <div class="category-icon">⚙️</div>
+                <h3>المعالجات</h3>
+            </div>
+            <div class="category-card" data-category="cooling">
+                <div class="category-icon">❄️</div>
+                <h3>المبردات</h3>
+            </div>
+            <div class="category-card" data-category="keyboard">
+                <div class="category-icon">⌨️</div>
+                <h3>لوحات المفاتيح</h3>
+            </div>
+            <div class="category-card" data-category="mouse">
+                <div class="category-icon">🖱️</div>
+                <h3>الفأرة</h3>
+            </div>
+            <div class="category-card" data-category="case">
+                <div class="category-icon">💻</div>
+                <h3>صندوق الكمبيوتر</h3>
+            </div>
+            <div class="category-card" data-category="psu">
+                <div class="category-icon">🔌</div>
+                <h3>مزودات الطاقة</h3>
+            </div>
+            <div class="category-card" data-category="cables">
+                <div class="category-icon">🔗</div>
+                <h3>الكابلات</h3>
+            </div>
+            <div class="category-card" data-category="monitor">
+                <div class="category-icon">🖥️</div>
+                <h3>الشاشات</h3>
+            </div>
+            <div class="category-card" data-category="motherboard">
+                <div class="category-icon">🔌</div>
+                <h3>اللوحات الأم</h3>
+            </div>
+            <div class="category-card" data-category="ram">
+                <div class="category-icon">🧠</div>
+                <h3>الذاكرة العشوائية</h3>
+            </div>
+            <div class="category-card" data-category="storage">
+                <div class="category-icon">💾</div>
+                <h3>مساحات التخزين</h3>
+            </div>
+            <div class="category-card" data-category="fans">
+                <div class="category-icon">🌀</div>
+                <h3>مراوح RGB</h3>
+            </div>
+            <div class="category-card" data-category="prebuilt">
+                <div class="category-icon">🖥️</div>
+                <h3>تجميعات جاهزة</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- المنتجات -->
+    <section id="products" class="products">
+        <h2 class="section-title">أحدث المنتجات</h2>
+        <div class="products-grid" id="products-container">
+            <!-- سيتم ملء المنتجات ديناميكيًا -->
+        </div>
+    </section>
+
+    <!-- قسم التعليقات -->
+    <section id="comments" class="comments">
+        <h2 class="section-title">التعليقات</h2>
+        <div class="comments-container">
+            <div class="comment-form">
+                <h3>اترك تعليقك</h3>
+                <form id="comment-form">
+                    <input type="text" id="comment-name" placeholder="اسمك" required>
+                    <textarea id="comment-text" placeholder="تعليقك" required></textarea>
+                    <button type="submit">إرسال التعليق</button>
+                </form>
+            </div>
+            <div class="comments-list" id="comments-list">
+                <!-- سيتم ملء التعليقات ديناميكيًا -->
+            </div>
+        </div>
+    </section>
+
+    <!-- تذييل الصفحة -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>معلومات التواصل</h3>
+                <p id="footer-phone">الهاتف: 123-456-789</p>
+                <p id="footer-whatsapp">واتساب: 123-456-789</p>
+                <p id="footer-facebook">فيسبوك: <a href="#" id="facebook-link">متجر قطع الكمبيوتر</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>روابط سريعة</h3>
+                <a href="#home">الرئيسية</a>
+                <a href="#products">المنتجات</a>
+                <a href="#about">من نحن</a>
+                <a href="#contact">اتصل بنا</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2023 متجر قطع الكمبيوتر. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
