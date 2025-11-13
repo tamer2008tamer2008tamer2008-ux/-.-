@@ -3,129 +3,297 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لوحة الإدارة - متجر قطع الكمبيوتر</title>
+    <title>لوحة التحكم - Faiz Tech</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="admin-body">
+    <!-- شاشة تسجيل الدخول -->
     <div class="admin-login" id="admin-login">
-        <div class="login-form">
-            <h2>تسجيل الدخول إلى لوحة الإدارة</h2>
-            <input type="password" id="admin-password" placeholder="كلمة المرور">
-            <button id="login-btn">دخول</button>
+        <div class="login-container">
+            <div class="login-card">
+                <div class="login-header">
+                    <i class="fas fa-lock"></i>
+                    <h2>لوحة تحكم Faiz Tech</h2>
+                    <p>يجب تسجيل الدخول للوصول إلى لوحة التحكم</p>
+                </div>
+                <form class="login-form" id="login-form">
+                    <div class="form-group">
+                        <input type="password" id="admin-password" placeholder="كلمة المرور" required>
+                        <i class="fas fa-key form-icon"></i>
+                    </div>
+                    <button type="submit" class="login-btn">
+                        <i class="fas fa-sign-in-alt"></i> تسجيل الدخول
+                    </button>
+                </form>
+                <div class="login-footer">
+                    <p>كلمة المرور الافتراضية: <strong>106</strong></p>
+                </div>
+            </div>
         </div>
     </div>
 
+    <!-- لوحة التحكم -->
     <div class="admin-panel" id="admin-panel" style="display: none;">
+        <!-- الهيدر -->
         <header class="admin-header">
-            <h1>لوحة إدارة المتجر</h1>
-            <button id="logout-btn">تسجيل الخروج</button>
+            <div class="admin-header-content">
+                <div class="admin-logo">
+                    <i class="fas fa-desktop"></i>
+                    <span>Faiz Tech - لوحة التحكم</span>
+                </div>
+                <div class="admin-actions">
+                    <button id="logout-btn" class="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i> تسجيل الخروج
+                    </button>
+                </div>
+            </div>
         </header>
 
-        <div class="admin-container">
-            <div class="admin-sidebar">
-                <button class="admin-tab active" data-tab="add-product">إضافة منتج</button>
-                <button class="admin-tab" data-tab="manage-products">إدارة المنتجات</button>
-                <button class="admin-tab" data-tab="contact-info">معلومات التواصل</button>
-                <button class="admin-tab" data-tab="change-password">تغيير كلمة المرور</button>
-            </div>
+        <!-- المحتوى الرئيسي -->
+        <div class="admin-main">
+            <!-- الشريط الجانبي -->
+            <aside class="admin-sidebar">
+                <nav class="admin-nav">
+                    <button class="admin-nav-btn active" data-tab="dashboard">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>لوحة التحكم</span>
+                    </button>
+                    <button class="admin-nav-btn" data-tab="add-product">
+                        <i class="fas fa-plus-circle"></i>
+                        <span>إضافة منتج</span>
+                    </button>
+                    <button class="admin-nav-btn" data-tab="manage-products">
+                        <i class="fas fa-boxes"></i>
+                        <span>إدارة المنتجات</span>
+                    </button>
+                    <button class="admin-nav-btn" data-tab="contact-info">
+                        <i class="fas fa-address-book"></i>
+                        <span>معلومات التواصل</span>
+                    </button>
+                    <button class="admin-nav-btn" data-tab="change-password">
+                        <i class="fas fa-lock"></i>
+                        <span>تغيير كلمة المرور</span>
+                    </button>
+                </nav>
+            </aside>
 
-            <div class="admin-content">
+            <!-- المحتوى -->
+            <main class="admin-content">
+                <!-- لوحة التحكم -->
+                <div id="dashboard" class="tab-content active">
+                    <div class="content-header">
+                        <h2><i class="fas fa-tachometer-alt"></i> لوحة التحكم</h2>
+                        <p>نظرة عامة على المتجر والإحصائيات</p>
+                    </div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-box"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="total-products">0</h3>
+                                <p>إجمالي المنتجات</p>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="total-comments">0</h3>
+                                <p>إجمالي التعليقات</p>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-th-large"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>14</h3>
+                                <p>عدد الأقسام</p>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-cog"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>100%</h3>
+                                <p>حالة النظام</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="recent-activities">
+                        <h3>آخر النشاطات</h3>
+                        <div class="activities-list" id="activities-list">
+                            <!-- يتم ملؤها ديناميكياً -->
+                        </div>
+                    </div>
+                </div>
+
                 <!-- إضافة منتج -->
-                <div id="add-product" class="tab-content active">
-                    <h2>إضافة منتج جديد</h2>
-                    <form id="add-product-form">
-                        <div class="form-group">
-                            <label for="product-name">اسم المنتج:</label>
-                            <input type="text" id="product-name" required>
+                <div id="add-product" class="tab-content">
+                    <div class="content-header">
+                        <h2><i class="fas fa-plus-circle"></i> إضافة منتج جديد</h2>
+                        <p>أضف منتجات جديدة إلى المتجر</p>
+                    </div>
+                    
+                    <form id="add-product-form" class="product-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="product-name"><i class="fas fa-tag"></i> اسم المنتج</label>
+                                <input type="text" id="product-name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="product-category"><i class="fas fa-folder"></i> القسم</label>
+                                <select id="product-category" required>
+                                    <option value="">اختر القسم</option>
+                                    <option value="gpu">كروت الشاشة</option>
+                                    <option value="cpu">المعالجات</option>
+                                    <option value="cooling">أنظمة التبريد</option>
+                                    <option value="keyboard">لوحات المفاتيح</option>
+                                    <option value="mouse">الفأرة</option>
+                                    <option value="case">صناديق الحاسب</option>
+                                    <option value="psu">مزودات الطاقة</option>
+                                    <option value="cables">الكابلات</option>
+                                    <option value="monitor">الشاشات</option>
+                                    <option value="motherboard">اللوحات الأم</option>
+                                    <option value="ram">الذاكرة العشوائية</option>
+                                    <option value="storage">مساحات التخزين</option>
+                                    <option value="fans">مراوح RGB</option>
+                                    <option value="prebuilt">تجميعات جاهزة</option>
+                                </select>
+                            </div>
                         </div>
+                        
                         <div class="form-group">
-                            <label for="product-category">القسم:</label>
-                            <select id="product-category" required>
-                                <option value="">اختر القسم</option>
-                                <option value="gpu">كروت الشاشة</option>
-                                <option value="cpu">المعالجات</option>
-                                <option value="cooling">المبردات</option>
-                                <option value="keyboard">لوحات المفاتيح</option>
-                                <option value="mouse">الفأرة</option>
-                                <option value="case">صندوق الكمبيوتر</option>
-                                <option value="psu">مزودات الطاقة</option>
-                                <option value="cables">الكابلات</option>
-                                <option value="monitor">الشاشات</option>
-                                <option value="motherboard">اللوحات الأم</option>
-                                <option value="ram">الذاكرة العشوائية</option>
-                                <option value="storage">مساحات التخزين</option>
-                                <option value="fans">مراوح RGB</option>
-                                <option value="prebuilt">تجميعات جاهزة</option>
-                            </select>
+                            <label for="product-description"><i class="fas fa-align-left"></i> الوصف</label>
+                            <textarea id="product-description" rows="4" required></textarea>
                         </div>
-                        <div class="form-group">
-                            <label for="product-description">الوصف:</label>
-                            <textarea id="product-description" required></textarea>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="product-price"><i class="fas fa-dollar-sign"></i> السعر</label>
+                                <input type="text" id="product-price" placeholder="مثال: 1500 ريال" required>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="product-price">السعر:</label>
-                            <input type="number" id="product-price" required>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="product-image"><i class="fas fa-image"></i> صورة المنتج</label>
+                                <input type="file" id="product-image" accept="image/*" class="file-input">
+                                <div class="file-preview" id="image-preview"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="product-video"><i class="fas fa-video"></i> فيديو المنتج (اختياري)</label>
+                                <input type="file" id="product-video" accept="video/*" class="file-input">
+                                <div class="file-preview" id="video-preview"></div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="product-image">صورة المنتج:</label>
-                            <input type="file" id="product-image" accept="image/*">
-                        </div>
-                        <div class="form-group">
-                            <label for="product-video">فيديو المنتج (اختياري):</label>
-                            <input type="file" id="product-video" accept="video/*">
-                        </div>
-                        <button type="submit">نشر المنتج</button>
+                        
+                        <button type="submit" class="submit-btn large">
+                            <i class="fas fa-plus"></i> إضافة المنتج
+                        </button>
                     </form>
                 </div>
 
                 <!-- إدارة المنتجات -->
                 <div id="manage-products" class="tab-content">
-                    <h2>إدارة المنتجات</h2>
-                    <div id="products-list">
-                        <!-- سيتم ملء المنتجات ديناميكيًا -->
+                    <div class="content-header">
+                        <h2><i class="fas fa-boxes"></i> إدارة المنتجات</h2>
+                        <p>عرض وتعديل وحذف المنتجات</p>
+                    </div>
+                    
+                    <div class="products-management">
+                        <div class="search-bar">
+                            <input type="text" id="product-search" placeholder="ابحث عن منتج...">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        
+                        <div class="products-table-container">
+                            <table class="products-table">
+                                <thead>
+                                    <tr>
+                                        <th>الصورة</th>
+                                        <th>اسم المنتج</th>
+                                        <th>القسم</th>
+                                        <th>السعر</th>
+                                        <th>الإجراءات</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="products-table-body">
+                                    <!-- يتم ملؤها ديناميكياً -->
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
 
                 <!-- معلومات التواصل -->
                 <div id="contact-info" class="tab-content">
-                    <h2>معلومات التواصل</h2>
-                    <form id="contact-form">
+                    <div class="content-header">
+                        <h2><i class="fas fa-address-book"></i> معلومات التواصل</h2>
+                        <p>تعديل معلومات التواصل الظاهرة في الموقع</p>
+                    </div>
+                    
+                    <form id="contact-form" class="contact-form">
                         <div class="form-group">
-                            <label for="contact-phone">رقم الهاتف:</label>
-                            <input type="text" id="contact-phone">
+                            <label for="contact-phone"><i class="fas fa-phone"></i> رقم الهاتف</label>
+                            <input type="text" id="contact-phone" required>
                         </div>
+                        
                         <div class="form-group">
-                            <label for="contact-whatsapp">رقم الواتساب:</label>
-                            <input type="text" id="contact-whatsapp">
+                            <label for="contact-whatsapp"><i class="fab fa-whatsapp"></i> رقم الواتساب</label>
+                            <input type="text" id="contact-whatsapp" required>
                         </div>
+                        
                         <div class="form-group">
-                            <label for="contact-facebook">رابط الفيسبوك:</label>
-                            <input type="text" id="contact-facebook">
+                            <label for="contact-facebook"><i class="fab fa-facebook"></i> رابط الفيسبوك</label>
+                            <input type="url" id="contact-facebook" required>
                         </div>
-                        <button type="submit">حفظ التغييرات</button>
+                        
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-save"></i> حفظ التغييرات
+                        </button>
                     </form>
                 </div>
 
                 <!-- تغيير كلمة المرور -->
                 <div id="change-password" class="tab-content">
-                    <h2>تغيير كلمة المرور</h2>
-                    <form id="password-form">
+                    <div class="content-header">
+                        <h2><i class="fas fa-lock"></i> تغيير كلمة المرور</h2>
+                        <p>تغيير كلمة مرور لوحة التحكم</p>
+                    </div>
+                    
+                    <form id="password-form" class="password-form">
                         <div class="form-group">
-                            <label for="new-password">كلمة المرور الجديدة:</label>
-                            <input type="password" id="new-password">
+                            <label for="new-password"><i class="fas fa-key"></i> كلمة المرور الجديدة</label>
+                            <input type="password" id="new-password" required>
                         </div>
+                        
                         <div class="form-group">
-                            <label for="confirm-password">تأكيد كلمة المرور:</label>
-                            <input type="password" id="confirm-password">
+                            <label for="confirm-password"><i class="fas fa-key"></i> تأكيد كلمة المرور</label>
+                            <input type="password" id="confirm-password" required>
                         </div>
-                        <button type="submit">تغيير كلمة المرور</button>
+                        
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-sync-alt"></i> تغيير كلمة المرور
+                        </button>
                     </form>
                 </div>
-            </div>
+            </main>
         </div>
     </div>
 
     <script src="admin.js"></script>
 </body>
-</html>
+    </html>
