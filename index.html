@@ -3,150 +3,317 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>متجر قطع الكمبيوتر</title>
+    <title>Faiz Tech - متجر قطع الكمبيوتر</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- الخلفية المتحركة -->
+    <div class="bg-animation">
+        <div class="floating-pc-part" style="top: 10%; left: 5%; animation-delay: 0s;">🖥️</div>
+        <div class="floating-pc-part" style="top: 20%; right: 10%; animation-delay: 1s;">⚙️</div>
+        <div class="floating-pc-part" style="bottom: 30%; left: 15%; animation-delay: 2s;">💻</div>
+        <div class="floating-pc-part" style="top: 40%; right: 20%; animation-delay: 3s;">🔌</div>
+        <div class="floating-pc-part" style="bottom: 20%; right: 5%; animation-delay: 4s;">🧠</div>
+    </div>
+
     <!-- شريط التنقل -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <a href="#">PC Parts Store</a>
+                <a href="#" class="logo-text">
+                    <span class="logo-icon"><i class="fas fa-desktop"></i></span>
+                    Faiz Tech
+                </a>
             </div>
             <div class="nav-menu">
                 <a href="#home" class="nav-link">الرئيسية</a>
+                <a href="#categories" class="nav-link">الأقسام</a>
                 <a href="#products" class="nav-link">المنتجات</a>
                 <a href="#about" class="nav-link">من نحن</a>
                 <a href="#contact" class="nav-link">اتصل بنا</a>
-                <a href="admin.html" class="nav-link admin-btn">لوحة الإدارة</a>
+                <a href="admin.html" class="nav-link admin-btn">
+                    <i class="fas fa-cog"></i> لوحة التحكم
+                </a>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
             </div>
         </div>
     </nav>
 
     <!-- القسم الرئيسي -->
     <section id="home" class="hero">
+        <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1 class="hero-title">أفضل قطع الكمبيوتر بأفضل الأسعار</h1>
-            <p class="hero-description">اكتشف أحدث مكونات الكمبيوتر من كروت الشاشة والمعالجات واللوحات الأم والمزيد</p>
-            <a href="#products" class="cta-button">تصفح المنتجات</a>
+            <h1 class="hero-title">
+                <span class="title-main">Faiz Tech</span>
+                <span class="title-sub">أفضل قطع الكمبيوتر بتقنية عالية</span>
+            </h1>
+            <p class="hero-description">
+                اكتشف أحدث مكونات الكمبيوتر والأجهزة الطرفية بأفضل الأسعار. 
+                نوفر لك كل ما تحتاجه لبناء جهاز أحلامك.
+            </p>
+            <div class="hero-buttons">
+                <a href="#products" class="cta-button primary">
+                    <i class="fas fa-shopping-cart"></i> تسوق الآن
+                </a>
+                <a href="#categories" class="cta-button secondary">
+                    <i class="fas fa-th-large"></i> تصفح الأقسام
+                </a>
+            </div>
         </div>
-        <div class="hero-animation">
-            <div class="floating-pc"></div>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">منتج متوفر</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">1000+</div>
+                <div class="stat-label">عميل راضي</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">دعم فني</div>
+            </div>
         </div>
     </section>
 
     <!-- الأقسام -->
     <section id="categories" class="categories">
-        <h2 class="section-title">أقسام المتجر</h2>
-        <div class="categories-grid">
-            <div class="category-card" data-category="gpu">
-                <div class="category-icon">🖥️</div>
-                <h3>كروت الشاشة</h3>
-            </div>
-            <div class="category-card" data-category="cpu">
-                <div class="category-icon">⚙️</div>
-                <h3>المعالجات</h3>
-            </div>
-            <div class="category-card" data-category="cooling">
-                <div class="category-icon">❄️</div>
-                <h3>المبردات</h3>
-            </div>
-            <div class="category-card" data-category="keyboard">
-                <div class="category-icon">⌨️</div>
-                <h3>لوحات المفاتيح</h3>
-            </div>
-            <div class="category-card" data-category="mouse">
-                <div class="category-icon">🖱️</div>
-                <h3>الفأرة</h3>
-            </div>
-            <div class="category-card" data-category="case">
-                <div class="category-icon">💻</div>
-                <h3>صندوق الكمبيوتر</h3>
-            </div>
-            <div class="category-card" data-category="psu">
-                <div class="category-icon">🔌</div>
-                <h3>مزودات الطاقة</h3>
-            </div>
-            <div class="category-card" data-category="cables">
-                <div class="category-icon">🔗</div>
-                <h3>الكابلات</h3>
-            </div>
-            <div class="category-card" data-category="monitor">
-                <div class="category-icon">🖥️</div>
-                <h3>الشاشات</h3>
-            </div>
-            <div class="category-card" data-category="motherboard">
-                <div class="category-icon">🔌</div>
-                <h3>اللوحات الأم</h3>
-            </div>
-            <div class="category-card" data-category="ram">
-                <div class="category-icon">🧠</div>
-                <h3>الذاكرة العشوائية</h3>
-            </div>
-            <div class="category-card" data-category="storage">
-                <div class="category-icon">💾</div>
-                <h3>مساحات التخزين</h3>
-            </div>
-            <div class="category-card" data-category="fans">
-                <div class="category-icon">🌀</div>
-                <h3>مراوح RGB</h3>
-            </div>
-            <div class="category-card" data-category="prebuilt">
-                <div class="category-icon">🖥️</div>
-                <h3>تجميعات جاهزة</h3>
+        <div class="container">
+            <h2 class="section-title">أقسام المتجر</h2>
+            <p class="section-subtitle">اختر من بين مجموعة واسعة من قطع الكمبيوتر</p>
+            
+            <div class="categories-grid">
+                <div class="category-card" data-category="gpu">
+                    <div class="category-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>كروت الشاشة</h3>
+                    <p>أقوى كروت الشاشة للألعاب والمحترفين</p>
+                </div>
+                
+                <div class="category-card" data-category="cpu">
+                    <div class="category-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>المعالجات</h3>
+                    <p>معالجات قوية من Intel و AMD</p>
+                </div>
+                
+                <div class="category-card" data-category="motherboard">
+                    <div class="category-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>اللوحات الأم</h3>
+                    <p>لوحات أم متوافقة مع أحدث التقنيات</p>
+                </div>
+                
+                <div class="category-card" data-category="ram">
+                    <div class="category-icon">
+                        <i class="fas fa-memory"></i>
+                    </div>
+                    <h3>الذاكرة العشوائية</h3>
+                    <p>رامات عالية السرعة بترددات مختلفة</p>
+                </div>
+                
+                <div class="category-card" data-category="storage">
+                    <div class="category-icon">
+                        <i class="fas fa-hdd"></i>
+                    </div>
+                    <h3>مساحات التخزين</h3>
+                    <p>SSD و HDD بسرعات فائقة</p>
+                </div>
+                
+                <div class="category-card" data-category="psu">
+                    <div class="category-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>مزودات الطاقة</h3>
+                    <p>مزودات طاقة بكفاءة عالية</p>
+                </div>
+                
+                <div class="category-card" data-category="cooling">
+                    <div class="category-icon">
+                        <i class="fas fa-fan"></i>
+                    </div>
+                    <h3>أنظمة التبريد</h3>
+                    <p>مبردات هواء وسائل للحفاظ على الحرارة</p>
+                </div>
+                
+                <div class="category-card" data-category="case">
+                    <div class="category-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3>صناديق الحاسب</h3>
+                    <p>تصاميم عصرية مع إضاءة RGB</p>
+                </div>
+
+                <div class="category-card" data-category="monitor">
+                    <div class="category-icon">
+                        <i class="fas fa-tv"></i>
+                    </div>
+                    <h3>الشاشات</h3>
+                    <p>شاشات بدقة عالية ومعدل تحديث سريع</p>
+                </div>
+
+                <div class="category-card" data-category="keyboard">
+                    <div class="category-icon">
+                        <i class="fas fa-keyboard"></i>
+                    </div>
+                    <h3>لوحات المفاتيح</h3>
+                    <p>ميكانيكية و membrane بإضاءة RGB</p>
+                </div>
+
+                <div class="category-card" data-category="mouse">
+                    <div class="category-icon">
+                        <i class="fas fa-mouse"></i>
+                    </div>
+                    <h3>الفأرة</h3>
+                    <p>فأرات ألعاب بدقة عالية</p>
+                </div>
+
+                <div class="category-card" data-category="fans">
+                    <div class="category-icon">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <h3>مراوح RGB</h3>
+                    <p>مراوح ملونة مع إضاءة متعددة</p>
+                </div>
+
+                <div class="category-card" data-category="cables">
+                    <div class="category-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>الكابلات</h3>
+                    <p>كابلات توصيل وإطالة</p>
+                </div>
+
+                <div class="category-card" data-category="prebuilt">
+                    <div class="category-icon">
+                        <i class="fas fa-laptop-house"></i>
+                    </div>
+                    <h3>تجميعات جاهزة</h3>
+                    <p>أجهزة مكتملة جاهزة للاستخدام</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- المنتجات -->
     <section id="products" class="products">
-        <h2 class="section-title">أحدث المنتجات</h2>
-        <div class="products-grid" id="products-container">
-            <!-- سيتم ملء المنتجات ديناميكيًا -->
+        <div class="container">
+            <h2 class="section-title">أحدث المنتجات</h2>
+            <p class="section-subtitle">اكتشف منتجاتنا المميزة</p>
+            
+            <div class="products-filter">
+                <button class="filter-btn active" data-filter="all">جميع المنتجات</button>
+                <button class="filter-btn" data-filter="new">المنتجات الجديدة</button>
+                <button class="filter-btn" data-filter="sale">العروض الخاصة</button>
+            </div>
+            
+            <div class="products-grid" id="products-container">
+                <!-- المنتجات تُعرض هنا ديناميكياً -->
+            </div>
         </div>
     </section>
 
     <!-- قسم التعليقات -->
     <section id="comments" class="comments">
-        <h2 class="section-title">التعليقات</h2>
-        <div class="comments-container">
-            <div class="comment-form">
-                <h3>اترك تعليقك</h3>
-                <form id="comment-form">
-                    <input type="text" id="comment-name" placeholder="اسمك" required>
-                    <textarea id="comment-text" placeholder="تعليقك" required></textarea>
-                    <button type="submit">إرسال التعليق</button>
-                </form>
-            </div>
-            <div class="comments-list" id="comments-list">
-                <!-- سيتم ملء التعليقات ديناميكيًا -->
+        <div class="container">
+            <h2 class="section-title">آراء العملاء</h2>
+            <p class="section-subtitle">ما يقولونه عنا</p>
+            
+            <div class="comments-container">
+                <div class="comment-form-container">
+                    <div class="comment-form">
+                        <h3><i class="fas fa-comment-dots"></i> اترك تعليقك</h3>
+                        <form id="comment-form">
+                            <div class="form-group">
+                                <input type="text" id="comment-name" placeholder="اسمك الكريم" required>
+                                <i class="fas fa-user form-icon"></i>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="comment-text" placeholder="تعليقك..." required></textarea>
+                                <i class="fas fa-comment form-icon"></i>
+                            </div>
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-paper-plane"></i> إرسال التعليق
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="comments-list" id="comments-list">
+                    <!-- التعليقات تُعرض هنا ديناميكياً -->
+                </div>
             </div>
         </div>
     </section>
 
     <!-- تذييل الصفحة -->
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>معلومات التواصل</h3>
-                <p id="footer-phone">الهاتف: 123-456-789</p>
-                <p id="footer-whatsapp">واتساب: 123-456-789</p>
-                <p id="footer-facebook">فيسبوك: <a href="#" id="facebook-link">متجر قطع الكمبيوتر</a></p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-desktop"></i>
+                        Faiz Tech
+                    </div>
+                    <p>متخصصون في توفير أفضل قطع الكمبيوتر والأجهزة الطرفية بأعلى جودة وأفضل الأسعار.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>معلومات التواصل</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> <span id="footer-phone">+966 123 456 789</span></p>
+                        <p><i class="fab fa-whatsapp"></i> <span id="footer-whatsapp">+966 123 456 789</span></p>
+                        <p><i class="fas fa-envelope"></i> info@faiztech.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> المملكة العربية السعودية</p>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>روابط سريعة</h3>
+                    <div class="footer-links">
+                        <a href="#home">الرئيسية</a>
+                        <a href="#categories">الأقسام</a>
+                        <a href="#products">المنتجات</a>
+                        <a href="#about">من نحن</a>
+                        <a href="#contact">اتصل بنا</a>
+                        <a href="admin.html">لوحة التحكم</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>القائمة البريدية</h3>
+                    <p>اشترك لتصلك آخر العروض والأخبار</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="بريدك الإلكتروني" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
             </div>
-            <div class="footer-section">
-                <h3>روابط سريعة</h3>
-                <a href="#home">الرئيسية</a>
-                <a href="#products">المنتجات</a>
-                <a href="#about">من نحن</a>
-                <a href="#contact">اتصل بنا</a>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Faiz Tech. جميع الحقوق محفوظة.</p>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2023 متجر قطع الكمبيوتر. جميع الحقوق محفوظة.</p>
         </div>
     </footer>
 
+    <!-- زر العودة للأعلى -->
+    <button class="scroll-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
     <script src="script.js"></script>
 </body>
-</html>
+                    </html>
