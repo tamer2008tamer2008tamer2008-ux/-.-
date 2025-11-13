@@ -1,27 +1,15 @@
 // بيانات المتجر
-let storeData = {
-    products: [],
-    contactInfo: {
-        phone: "+966 123 456 789",
-        whatsapp: "+966 123 456 789",
-        facebook: "https://facebook.com/faiztech"
-    },
-    comments: [],
-    adminPassword: "106"
-};
+let storeData = null;
 
-// تحميل البيانات من التخزين المحلي
-function loadData() {
-    const savedData = localStorage.getItem('faizTechData');
-    if (savedData) {
-        storeData = JSON.parse(savedData);
-    }
+// تحميل البيانات
+async function loadData() {
+    storeData = await apiService.getData();
     updateUI();
 }
 
-// حفظ البيانات في التخزين المحلي
-function saveData() {
-    localStorage.setItem('faizTechData', JSON.stringify(storeData));
+// حفظ البيانات
+async function saveData() {
+    await apiService.saveData(storeData);
 }
 
 // تحديث واجهة المستخدم
@@ -63,7 +51,7 @@ function displayProducts(products = storeData.products) {
                 </video>
             `;
         } else if (product.image) {
-            mediaContent = `<img src="${product.image}" alt="${product.name}" class="product-image">`;
+            mediaContent = `<img src="${product.image}" alt="${product.name}" class="product-image" loading="lazy">`;
         } else {
             mediaContent = `
                 <div class="product-image" style="
@@ -110,13 +98,21 @@ function displayComments() {
         return;
     }
 
-    storeData.comments.forEach(comment => {
+    // ترتيب التعليقات من الأحدث إلى الأقدم
+    const sortedComments = [...storeData.comments].sort((a, b) => {
+        const dateA = new Date(a.date);
+        const dateB = new Date(b.date);
+        return dateB - dateA;
+    });
+
+    sortedComments.forEach(comment => {
+        const commentDate = new Date(comment.date);
         const commentItem = document.createElement('div');
         commentItem.className = 'comment-item';
         commentItem.innerHTML = `
             <div class="comment-author">${comment.name}</div>
             <div class="comment-text">${comment.text}</div>
-            <div class="comment-date">${new Date(comment.date).toLocaleDateString('ar-EG')}</div>
+            <div class="comment-date">${commentDate.toLocaleDateString('ar-EG')}</div>
         `;
         container.appendChild(commentItem);
     });
@@ -189,7 +185,7 @@ function displayFilteredProducts(products, category) {
                 </video>
             `;
         } else if (product.image) {
-            mediaContent = `<img src="${product.image}" alt="${product.name}" class="product-image">`;
+            mediaContent = `<img src="${product.image}" alt="${product.name}" class="product-image" loading="lazy">`;
         } else {
             mediaContent = `
                 <div class="product-image" style="
@@ -253,20 +249,21 @@ function setupEventListeners() {
     // إرسال تعليق جديد
     const commentForm = document.getElementById('comment-form');
     if (commentForm) {
-        commentForm.addEventListener('submit', function(e) {
+        commentForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
             const name = document.getElementById('comment-name').value;
             const text = document.getElementById('comment-text').value;
             
             if (name && text) {
-                storeData.comments.push({
+                const newComment = {
                     name: name,
                     text: text,
                     date: new Date().toISOString()
-                });
+                };
                 
-                saveData();
+                storeData.comments.push(newComment);
+                await saveData();
                 displayComments();
                 commentForm.reset();
                 
@@ -322,12 +319,26 @@ function setupEventListeners() {
             if (filter === 'all') {
                 displayProducts();
             }
-            // يمكن إضافة المزيد من الفلاتر لاحقاً
         });
     });
 }
 
+// تحديث البيانات تلقائياً كل 30 ثانية
+function startAutoRefresh() {
+    setInterval(async () => {
+        console.log('🔄 تحديث البيانات تلقائياً...');
+        const newData = await apiService.getData();
+        if (JSON.stringify(newData) !== JSON.stringify(storeData)) {
+            storeData = newData;
+            updateUI();
+            console.log('✅ تم تحديث البيانات');
+        }
+    }, 30000);
+}
+
 // تهيئة الصفحة
-document.addEventListener('DOMContentLoaded', function() {
-    loadData();
+document.addEventListener('DOMContentLoaded', async function() {
+    await loadData();
+    startAutoRefresh();
+    console.log('🚀 تم تحميل الموقع بنجاح!');
 });
